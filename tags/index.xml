@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags | Anirudh Mukherjee</title>
+    <link>https://anirudhmukherjee.github.io/tags/</link>
+      <atom:link href="https://anirudhmukherjee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tags</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Jan 2021 10:57:57 +0530</lastBuildDate>
+    <image>
+      <url>https://anirudhmukherjee.github.io/images/icon_hu4aea71254dee4ef39062c2722ff4e50a_1405_512x512_fill_lanczos_center_2.png</url>
+      <title>Tags</title>
+      <link>https://anirudhmukherjee.github.io/tags/</link>
+    </image>
+    
+  </channel>
+</rss>

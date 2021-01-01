@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Math | Anirudh Mukherjee</title>
+    <link>https://anirudhmukherjee.github.io/tag/math/</link>
+      <atom:link href="https://anirudhmukherjee.github.io/tag/math/index.xml" rel="self" type="application/rss+xml" />
+    <description>Math</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 12 Dec 2020 12:12:45 +0530</lastBuildDate>
+    <image>
+      <url>https://anirudhmukherjee.github.io/images/icon_hu4aea71254dee4ef39062c2722ff4e50a_1405_512x512_fill_lanczos_center_2.png</url>
+      <title>Math</title>
+      <link>https://anirudhmukherjee.github.io/tag/math/</link>
+    </image>
+    
+    <item>
+      <title>Procedural Cities</title>
+      <link>https://anirudhmukherjee.github.io/project/project12/</link>
+      <pubDate>Sat, 12 Dec 2020 12:12:45 +0530</pubDate>
+      <guid>https://anirudhmukherjee.github.io/project/project12/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Perlin Noise Terrain</title>
+      <link>https://anirudhmukherjee.github.io/project/project11/</link>
+      <pubDate>Sat, 12 Dec 2020 12:12:42 +0530</pubDate>
+      <guid>https://anirudhmukherjee.github.io/project/project11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lorenz System</title>
+      <link>https://anirudhmukherjee.github.io/project/project10/</link>
+      <pubDate>Sat, 12 Dec 2020 12:12:40 +0530</pubDate>
+      <guid>https://anirudhmukherjee.github.io/project/project10/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Compute shaders to render complex figures</title>
+      <link>https://anirudhmukherjee.github.io/project/project7/</link>
+      <pubDate>Sat, 12 Dec 2020 12:12:30 +0530</pubDate>
+      <guid>https://anirudhmukherjee.github.io/project/project7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cave structures using Cellular Automata</title>
+      <link>https://anirudhmukherjee.github.io/project/project5/</link>
+      <pubDate>Sat, 12 Dec 2020 12:12:26 +0530</pubDate>
+      <guid>https://anirudhmukherjee.github.io/project/project5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fractal Trees</title>
+      <link>https://anirudhmukherjee.github.io/project/project1/</link>
+      <pubDate>Sat, 12 Dec 2020 11:58:13 +0530</pubDate>
+      <guid>https://anirudhmukherjee.github.io/project/project1/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

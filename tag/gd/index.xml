@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GD | Anirudh Mukherjee</title>
+    <link>https://anirudhmukherjee.github.io/tag/gd/</link>
+      <atom:link href="https://anirudhmukherjee.github.io/tag/gd/index.xml" rel="self" type="application/rss+xml" />
+    <description>GD</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 12 Dec 2020 12:12:24 +0530</lastBuildDate>
+    <image>
+      <url>https://anirudhmukherjee.github.io/images/icon_hu4aea71254dee4ef39062c2722ff4e50a_1405_512x512_fill_lanczos_center_2.png</url>
+      <title>GD</title>
+      <link>https://anirudhmukherjee.github.io/tag/gd/</link>
+    </image>
+    
+    <item>
+      <title>Portals</title>
+      <link>https://anirudhmukherjee.github.io/project/project4/</link>
+      <pubDate>Sat, 12 Dec 2020 12:12:24 +0530</pubDate>
+      <guid>https://anirudhmukherjee.github.io/project/project4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blitz Sphere</title>
+      <link>https://anirudhmukherjee.github.io/project/project3/</link>
+      <pubDate>Sat, 12 Dec 2020 12:12:22 +0530</pubDate>
+      <guid>https://anirudhmukherjee.github.io/project/project3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Time Shard</title>
+      <link>https://anirudhmukherjee.github.io/project/project2/</link>
+      <pubDate>Sat, 12 Dec 2020 12:12:20 +0530</pubDate>
+      <guid>https://anirudhmukherjee.github.io/project/project2/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

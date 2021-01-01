@@ -1,0 +1,1630 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Anirudh Mukherjee">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="You might have heard of the term &#39;shading&#39; when pertaining to pencil sketches. Or maybe used the term a &#39;shade&#39; of red when referring to a particular colour. Well, in the computer world shaders are programs that run parallely on your GPU and determine how stuff gets drawn onto your screen.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://anirudhmukherjee.github.io/post/shaderland/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#328388">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.min.0e17c861b04c056e9f72ff6205554323.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu4aea71254dee4ef39062c2722ff4e50a_1405_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu4aea71254dee4ef39062c2722ff4e50a_1405_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://anirudhmukherjee.github.io/post/shaderland/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Anirudh Mukherjee">
+  <meta property="og:url" content="https://anirudhmukherjee.github.io/post/shaderland/">
+  <meta property="og:title" content="A brief introduction to Shaders | Anirudh Mukherjee">
+  <meta property="og:description" content="You might have heard of the term &#39;shading&#39; when pertaining to pencil sketches. Or maybe used the term a &#39;shade&#39; of red when referring to a particular colour. Well, in the computer world shaders are programs that run parallely on your GPU and determine how stuff gets drawn onto your screen."><meta property="og:image" content="https://anirudhmukherjee.github.io/post/shaderland/featured.jpg">
+  <meta property="twitter:image" content="https://anirudhmukherjee.github.io/post/shaderland/featured.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-12-18T23:48:01&#43;05:30">
+    
+    <meta property="article:modified_time" content="2020-12-18T23:48:01&#43;05:30">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anirudhmukherjee.github.io/post/shaderland/"
+  },
+  "headline": "A brief introduction to Shaders",
+  
+  "image": [
+    "https://anirudhmukherjee.github.io/post/shaderland/featured.jpg"
+  ],
+  
+  "datePublished": "2020-12-18T23:48:01+05:30",
+  "dateModified": "2020-12-18T23:48:01+05:30",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Anirudh Mukherjee"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Anirudh Mukherjee",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://anirudhmukherjee.github.io/images/icon_hu4aea71254dee4ef39062c2722ff4e50a_1405_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "You might have heard of the term 'shading' when pertaining to pencil sketches. Or maybe used the term a 'shade' of red when referring to a particular colour. Well, in the computer world shaders are programs that run parallely on your GPU and determine how stuff gets drawn onto your screen."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>A brief introduction to Shaders | Anirudh Mukherjee</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Anirudh Mukherjee</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Anirudh Mukherjee</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Experience</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Blog</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/art"><span>Art</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>A brief introduction to Shaders</h1>
+
+  
+  <p class="page-subtitle">Welcome to Shaderland!</p>
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  
+  <span ><a href="/author/anirudh-mukherjee/">Anirudh Mukherjee</a></span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Dec 18, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/shaders/">Shaders</a>, <a href="/category/computer-graphics/">Computer Graphics</a>, <a href="/category/glsl/">GLSL</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <div style="text-align: justify"> 
+You might have heard of the term 'shading' when pertaining to pencil sketches. Or maybe used the term a 'shade' of red when referring to a particular colour. Well, in the computer world shaders are programs that run parallely on your GPU and determine how stuff gets drawn onto your screen. An interesting characteristic of a shader program is that it runs for every single pixel on the screen. To make it a bit easier to grasp, we can think of them as tiny little programs that help us in drawing all sorts of things on a screen with ease, which we shall see in a moment.   
+<br /> <br /> 
+<h1 id="how-do-they-work">How do they work?</h1>
+<p>Now you might be thinking, why does this shader thing run on our GPUs? Why not make them work on CPUs like most normal programs do? That has something to do with what I had said earlier regarding the way these things work. These tiny little programs run for <i>every single pixel on your screen</i>. So if you’re using a 1080x720 monitor, the shader runs <i>777,600 times</i>. But wait, that&rsquo;s not such a large number in terms of computing things, right? Yes but these shader programs run every single <i> frame </i>for every single pixel since they need to keep rendering something on the screen based on your monitor&rsquo;s refresh rate. Which means it has to perform those 777,600 calculations every single frame and if we’re expecting a performance of at least 30 frames per second. That’s <i>23,328,000</i> calculations every second. Which is obviously insane. This is where the parallel processing power of a GPU comes in. You can think of it as a large chunk of cheese passing through a surface with multiple holes in it, like a cheese grater as compared to passing through a surface with a single hole in it, which would be the case of a CPU. Because of this parallel architecture which makes use of a large number of tiny microprocessors, all the 777,600 calculations can easily pass through it 30 times over in a second.
+<br /><br />
+One more important thing to remember is that since these shader programs run in parallel, each individual pixel has no idea what the other pixel is up to which means that each thread of the program is clueless  about what’s going on with the other threads. This means you cannot check for the state of the (n+1)th or the (n-1)th pixel which some of you might have done before. Also with each new wave in every frame, the GPU gets filled in with new information which makes it impossible to know what it was doing before. The parallel computation capability of shaders makes it a very powerful tool but it is this very same power that translates into its notorious complexity.
+<br /><br /></p>
+<h1 id="types-and-flavours">Types and Flavours</h1>
+<p>There are a number of shading languages out there with GLSL (OpenGL Shading Language) and Cg/HLSL (High Level Shading Language) being some of the most popular ones. Based on what the shader program does, we usually classify them into two types-</p>
+<ul>
+<li>Vertex Shaders and</li>
+<li>Fragment Shaders</li>
+</ul>
+<p>A Vertex shader, as the name suggests, takes in positions of certain objects that are to be drawn and converts them into the appropriate 3D coordinates for your screen whereas the Fragment shader is responsible to determine the final colour of each individual pixel on the screen. We’ll have a look about these in depth in a future post. Again there are a number of steps before the shaders are invoked which we&rsquo;ll go through sometime in the future. Or if you&rsquo;re adventurous enough you can have a look at the <a href="https://learnopengl.com/Getting-started/Hello-Triangle" target="_blank" rel="noopener">rasterization pipeline</a> for yourself.There’s one final concept to note before we move on to actually seeing a shader program and that is a uniform. Uniforms are inputs to the shader program from the CPU.These uniforms cannot be modified and are sent by the CPU to all threads running on the GPU. Hence, all the inputs from the CPU are the same for all threads from where we get the name ‘uniform’. Some common uniforms passed on to these programs are the screen resolution, mouse position and time.</p>
+<p><br />
+Okay then, enough talk. Let’s have a look at some code.</p>
+<div style="font-size: 50px">
+<pre><code>#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+void main() {
+    gl_FragColor = vec4(1.0,0.0,0.0,1.0);
+}
+</code></pre>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-the-result-on-your-screen">
+
+
+  <a data-fancybox="" href="/post/shaderland/red_hud161fc3927326e77aa165837bb52817b_12781_2000x2000_fit_q75_lanczos.JPG" data-caption="The result on your screen">
+
+
+  <img data-src="/post/shaderland/red_hud161fc3927326e77aa165837bb52817b_12781_2000x2000_fit_q75_lanczos.JPG" class="lazyload" alt="" width="614" height="509">
+</a>
+
+
+  
+  
+  <figcaption>
+    The result on your screen
+  </figcaption>
+
+
+</figure>
+
+</div>
+This is the simplest possible code for a fragment shader written in GLSL. We’ll go through it from top to bottom. 
+<p>The lines between ifdef and endif sets the precision value of a float to medium precision if GL_ES is defined, which is true in the case of mobile and browsers. We can go for lowp or highp precisions for lower and higher precisions respectively if we wish to do so.</p>
+<p>Next are the uniforms which are passed into the shader program. They are of the type vec2 which is a 2 dimensional vector of floats which is basically a group of two float values (x,y). You can think of them as tuples or just a group of values. We also have vec3 and vec4 types which is basically a group of 3 floats and a group of 4 floats.</p>
+<p>Now we come to the main function. The gl_FragColor is a reserved variable which outputs the final color onto the screen which in this case is a vec4 having the red, green, blue and alpha channels as its arguments. The channel values are floats that range between 0 and 1. Hence, the red is set to 1, blue and green to zero and the alpha to 1 as well which displays a solid red color onto the screen.</p>
+<p>We could make this program a little more interesting by animating it.</p>
+<pre><code>#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+void main() {
+    vec2 st = vec2(0.0,0.0);
+	  st.x = gl_FragCoord.x/u_resolution.x;
+	  st.y = gl_FragCoord.y/u_resolution.y;
+
+    gl_FragColor = vec4(st.x,st.y,abs(sin(u_time)),1.0);
+}
+</code></pre>
+<p>After adding in the sin wave to modulate the green channel over time, we get this sort of transitioning animation:
+<img src="screen4.gif" alt="Alt Text">
+Here, gl_FragCoord is another reserved variable which stores the coordinates of each individual screen pixel and is usually the output of a vertex shader. We divide it by the resolution since we want to obtain colour values between 0 and 1 as you can see in the final line of the program, this process is called normalization and the coordinates that range from 0 to 1 are called normalized coordinates. We are altering the green channel with the help of a sin() function which results in the transitioning effect.</p>
+<h1 id="some-examples">Some Examples</h1>
+<p>So far we have seen the absolute baby basics of how shaders work and what they are. When you further add in layers of complexity and model how the pixels behave, you can come up with some impressive pattern like structures which we shall explore sometime in the future. You can plot precise mathematical formulas to draw curved surfaces or use a color shift to enhance the image quality or add certain effects to the display, such as a Gaussian blur. Shaders can also be used to manipulate lighting conditions or add shadows to a scene, which involves some knowledge of physics to a certain extent. Shaders are used extensively in video games, animated movies, vehicle renders, etc. if we’re looking at the most common use case. Basically if you need to render a complex model onto the screen, you’re most likely to use a shader.</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-the-legend-of-zelda-breath-of-the-wild-uses-a-cel-shader">
+
+
+  <a data-fancybox="" href="/post/shaderland/cel-legend-of-zelda_hu2688258f6c2ef2e4125dc1f51ae38e49_93362_2000x2000_fit_q75_lanczos.jpg" data-caption="The Legend of Zelda: Breath of the Wild uses a Cel shader">
+
+
+  <img data-src="/post/shaderland/cel-legend-of-zelda_hu2688258f6c2ef2e4125dc1f51ae38e49_93362_2000x2000_fit_q75_lanczos.jpg" class="lazyload" alt="" width="1152" height="720">
+</a>
+
+
+  
+  
+  <figcaption>
+    The Legend of Zelda: Breath of the Wild uses a Cel shader
+  </figcaption>
+
+
+</figure>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-pixar-surface-a-surface-shader-applied-on-hank-from-finding-dory">
+
+
+  <a data-fancybox="" href="/post/shaderland/featured_hu92c04046da3d4074953cad185e3935e5_187737_2000x2000_fit_q75_lanczos.jpg" data-caption="Pixar surface, a surface shader applied on Hank from Finding Dory.">
+
+
+  <img data-src="/post/shaderland/featured_hu92c04046da3d4074953cad185e3935e5_187737_2000x2000_fit_q75_lanczos.jpg" class="lazyload" alt="" width="1920" height="1440">
+</a>
+
+
+  
+  
+  <figcaption>
+    Pixar surface, a surface shader applied on Hank from Finding Dory.
+  </figcaption>
+
+
+</figure>
+
+<p>They do tend to get increasingly complex as you keep on adding more details but once you get a good grasp on the ideas of space, time and colours, it’ll be a fun place to let your imagination flow. I shall sign off here and hope to cover some more shader stuff in the future, possibly covering pattern drawings with an example of maybe <a href="https://en.wikipedia.org/wiki/Truchet_tiles" target="_blank" rel="noopener">Truchet tiling</a> in the future. In the meantime you can have a look at some of these wonderful works of art created using shaders.</p>
+<p><br /><br />
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-seascape-by-tdm">
+
+
+  <a data-fancybox="" href="/post/shaderland/1_hud161fc3927326e77aa165837bb52817b_74864_2000x2000_fit_q75_lanczos.JPG" data-caption="Seascape by TDM">
+
+
+  <img data-src="/post/shaderland/1_hud161fc3927326e77aa165837bb52817b_74864_2000x2000_fit_q75_lanczos.JPG" class="lazyload" alt="" width="797" height="450">
+</a>
+
+
+  
+  
+  <figcaption>
+    Seascape by TDM
+  </figcaption>
+
+
+</figure>
+</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-fractal-land-by-kali">
+
+
+  <a data-fancybox="" href="/post/shaderland/2_hud161fc3927326e77aa165837bb52817b_86924_2000x2000_fit_q75_lanczos.JPG" data-caption="Fractal Land by Kali">
+
+
+  <img data-src="/post/shaderland/2_hud161fc3927326e77aa165837bb52817b_86924_2000x2000_fit_q75_lanczos.JPG" class="lazyload" alt="" width="800" height="444">
+</a>
+
+
+  
+  
+  <figcaption>
+    Fractal Land by Kali
+  </figcaption>
+
+
+</figure>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-rainier-mood-by-zavie">
+
+
+  <a data-fancybox="" href="/post/shaderland/3_hud161fc3927326e77aa165837bb52817b_82362_2000x2000_fit_q75_lanczos.JPG" data-caption="Rainier mood by Zavie">
+
+
+  <img data-src="/post/shaderland/3_hud161fc3927326e77aa165837bb52817b_82362_2000x2000_fit_q75_lanczos.JPG" class="lazyload" alt="" width="794" height="448">
+</a>
+
+
+  
+  
+  <figcaption>
+    Rainier mood by Zavie
+  </figcaption>
+
+
+</figure>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-noise-contour-by-candycat">
+
+
+  <a data-fancybox="" href="/post/shaderland/4_hud161fc3927326e77aa165837bb52817b_30175_2000x2000_fit_q75_lanczos.JPG" data-caption="Noise Contour by candycat">
+
+
+  <img data-src="/post/shaderland/4_hud161fc3927326e77aa165837bb52817b_30175_2000x2000_fit_q75_lanczos.JPG" class="lazyload" alt="" width="799" height="448">
+</a>
+
+
+  
+  
+  <figcaption>
+    Noise Contour by candycat
+  </figcaption>
+
+
+</figure>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-mandelbulb-by-evilryu">
+
+
+  <a data-fancybox="" href="/post/shaderland/5_hud161fc3927326e77aa165837bb52817b_122008_2000x2000_fit_q75_lanczos.JPG" data-caption="Mandelbulb by EvilRyu">
+
+
+  <img data-src="/post/shaderland/5_hud161fc3927326e77aa165837bb52817b_122008_2000x2000_fit_q75_lanczos.JPG" class="lazyload" alt="" width="796" height="449">
+</a>
+
+
+  
+  
+  <figcaption>
+    Mandelbulb by EvilRyu
+  </figcaption>
+
+
+</figure>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-fractal-pyramid-by-bradjamesgrant">
+
+
+  <a data-fancybox="" href="/post/shaderland/6_hud161fc3927326e77aa165837bb52817b_44363_2000x2000_fit_q75_lanczos.JPG" data-caption="Fractal pyramid by bradjamesgrant">
+
+
+  <img data-src="/post/shaderland/6_hud161fc3927326e77aa165837bb52817b_44363_2000x2000_fit_q75_lanczos.JPG" class="lazyload" alt="" width="793" height="442">
+</a>
+
+
+  
+  
+  <figcaption>
+    Fractal pyramid by bradjamesgrant
+  </figcaption>
+
+
+</figure>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-selfie-girl-by-iq">
+
+
+  <a data-fancybox="" href="/post/shaderland/7_hud161fc3927326e77aa165837bb52817b_69558_2000x2000_fit_q75_lanczos.JPG" data-caption="Selfie girl by iq">
+
+
+  <img data-src="/post/shaderland/7_hud161fc3927326e77aa165837bb52817b_69558_2000x2000_fit_q75_lanczos.JPG" class="lazyload" alt="" width="799" height="448">
+</a>
+
+
+  
+  
+  <figcaption>
+    Selfie girl by iq
+  </figcaption>
+
+
+</figure>
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-perspex-web-lattice-by-shane">
+
+
+  <a data-fancybox="" href="/post/shaderland/8_hud161fc3927326e77aa165837bb52817b_79835_2000x2000_fit_q75_lanczos.JPG" data-caption="Perspex Web Lattice by Shane">
+
+
+  <img data-src="/post/shaderland/8_hud161fc3927326e77aa165837bb52817b_79835_2000x2000_fit_q75_lanczos.JPG" class="lazyload" alt="" width="798" height="443">
+</a>
+
+
+  
+  
+  <figcaption>
+    Perspex Web Lattice by Shane
+  </figcaption>
+
+
+</figure>
+
+</div>
+<h5 id="links-for-the-above-images">Links for the above images:</h5>
+<ol>
+<li>Seascape: <a href="https://www.shadertoy.com/view/Ms2SD1">https://www.shadertoy.com/view/Ms2SD1</a></li>
+<li>Fractal Land: <a href="https://www.shadertoy.com/view/XsBXWt">https://www.shadertoy.com/view/XsBXWt</a></li>
+<li>Rainier mood: <a href="https://www.shadertoy.com/view/ldfyzl">https://www.shadertoy.com/view/ldfyzl</a></li>
+<li>Noise Contour: <a href="https://www.shadertoy.com/view/MscSzf">https://www.shadertoy.com/view/MscSzf</a></li>
+<li>Mandelbulb: <a href="https://www.shadertoy.com/view/MdXSWn">https://www.shadertoy.com/view/MdXSWn</a></li>
+<li>Fractal pyramid: <a href="https://www.shadertoy.com/view/tsXBzS">https://www.shadertoy.com/view/tsXBzS</a></li>
+<li>Selfie girl: <a href="https://www.shadertoy.com/view/WsSBzh">https://www.shadertoy.com/view/WsSBzh</a></li>
+<li>Perspex Web Lattice: <a href="https://www.shadertoy.com/view/Mld3Rn">https://www.shadertoy.com/view/Mld3Rn</a></li>
+</ol>
+<h3 id="references">References:</h3>
+<ol>
+<li><a href="https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders">https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders</a></li>
+<li><a href="https://www.cs.vu.nl/~eliens/download/literatuur-shaders.pdf">https://www.cs.vu.nl/~eliens/download/literatuur-shaders.pdf</a></li>
+<li><a href="http://www.cs.cornell.edu/courses/cs4620/2014fa/lectures/glsl1.pdf">http://www.cs.cornell.edu/courses/cs4620/2014fa/lectures/glsl1.pdf</a></li>
+</ol>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/shaders/">Shaders</a>
+  
+  <a class="badge badge-light" href="/tag/computer-graphics/">Computer Graphics</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://anirudhmukherjee.github.io/post/shaderland/&amp;text=A%20brief%20introduction%20to%20Shaders" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://anirudhmukherjee.github.io/post/shaderland/&amp;t=A%20brief%20introduction%20to%20Shaders" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=A%20brief%20introduction%20to%20Shaders&amp;body=https://anirudhmukherjee.github.io/post/shaderland/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://anirudhmukherjee.github.io/post/shaderland/&amp;title=A%20brief%20introduction%20to%20Shaders" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://pinterest.com/pin/create/link/?url=https://anirudhmukherjee.github.io/post/shaderland/&amp;description=A%20brief%20introduction%20to%20Shaders" target="_blank" rel="noopener" class="share-btn-pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.tumblr.com/widgets/share/tool?canonicalUrl=https://anirudhmukherjee.github.io/post/shaderland/&amp;title=A%20brief%20introduction%20to%20Shaders" target="_blank" rel="noopener" class="share-btn-tumblr">
+          <i class="fab fa-tumblr"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/2020/">About 2020.</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  <br><br><br>
+    
+  
+    <p class="powered-by">
+      
+    </p>
+  
+    
+    
+
+
+
+
+
+  
+    <p class="powered-by">
+      
+      
+      
+      Published with
+      <a href="https://wowchemy.com" target="_blank" rel="noopener">Academy</a>  —
+      for <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+      Hugo</a>.
+      <span class="float-right">
+        <a href="#" class="back-to-top" aria-label="Back to top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+      
+    </p>
+  </footer>
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/wowchemy.min.1e09523f15716988ebe7dec12c579bef.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>
